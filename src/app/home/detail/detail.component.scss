@@ -1,0 +1,24 @@
+.app-movie__detail {
+    &__backdrop {
+        height: 450px;
+        background-color: gray !important;
+        background-position: 50% 50% !important;
+        background-repeat: no-repeat !important;
+    }
+
+    &__header { 
+        margin: -100px auto 0 auto;
+        max-width: 1300px;
+        padding: 20px;
+        display: flex;
+        align-items: flex-start;
+
+        img {
+            border: 5px solid #FFF;
+        }
+
+        &__details { 
+            padding: 100px 20px 20px 20px;
+        }
+    }
+}

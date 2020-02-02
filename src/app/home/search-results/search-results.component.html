@@ -1,0 +1,17 @@
+<div>
+  <mat-paginator
+    [length]="totalResults"
+    [pageSize]="20"
+    (page)="onPageChanged($event)"
+  >
+  </mat-paginator>
+</div>
+<app-movie-list [movies]="results"></app-movie-list>
+<div>
+  <mat-paginator
+    [length]="totalResults"
+    [pageSize]="20"
+    (page)="onPageChanged($event)"
+  >
+  </mat-paginator>
+</div>

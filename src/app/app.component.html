@@ -1,0 +1,18 @@
+<form (ngSubmit)="search()" [formGroup]="searchForm">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="app-search">
+      <button type="button" [routerLink]="['/']" mat-button>
+        <mat-icon>home</mat-icon>
+      </button>
+      <input
+        class="app-search__input"
+        formControlName="searchQuery"
+        type="text"
+      />
+      <button type="submit" mat-button>Search</button>
+      <button type="button" [routerLink]="['/favorites']" mat-button>Favorites</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</form>
+<router-outlet></router-outlet>
+<app-loader *ngIf="isLoaderVisible"></app-loader>

@@ -1,0 +1,35 @@
+<div *ngIf="movie != null">
+  <div
+    *ngIf="movie.backdrop_path != null"
+    class="app-movie__detail__backdrop"
+    [style.background]="'url(' + backdropUrl + movie.backdrop_path + ')'"
+    [style.backgroundRepeat]="no-repeat"
+  ></div>
+  <div
+    *ngIf="movie.backdrop_path == null"
+    class="app-movie__detail__backdrop"
+  ></div>
+  <div class="app-movie__detail__header">
+    <img
+      *ngIf="movie.poster_path != null"
+      [src]="posterUrl + movie.poster_path"
+      alt="{{movie.title}}"
+    />
+    <img
+      *ngIf="movie.poster_path == null"
+      src="/assets/no_image.png"
+      alt="{{movie.title}}"
+    />
+    <div class="app-movie__detail__header__details">
+      <h1>{{movie.title}} ({{movie.release_date | date: 'yyyy'}})</h1>
+      <h3>Overview</h3>
+      <p>{{movie.overview}}</p>
+      <div><b>User score: </b> {{movie.vote_average}} / 10</div>
+      <br>
+      <button [color]="isFavorite ? 'accent' : ''" (click)="onToggleFavorite()" mat-stroked-button aria-label="Add to favorites">
+        <mat-icon>favorite</mat-icon>
+        {{isFavorite ? 'Remove from favorites' : 'Add to favorites'}}
+      </button>
+    </div>
+  </div>
+</div>

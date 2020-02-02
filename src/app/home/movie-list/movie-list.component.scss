@@ -1,0 +1,29 @@
+.app-movie__list {
+  &__details {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+
+    img {
+      min-width: 185px;
+      min-height: 278px;
+      background: gray;
+      box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    &__content { 
+        padding-left: 16px;
+    }
+  }
+
+  &__empty-response { 
+      padding: 20px;
+  }
+
+  mat-card {
+    border-radius: 0 !important;
+    flex-grow: 1;
+  }
+}

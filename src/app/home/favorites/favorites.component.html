@@ -1,0 +1,12 @@
+<div>
+  <mat-paginator
+    [length]="favoriteMovies.length"
+    [pageSize]="pageSize"
+    (page)="onPageChanged($event)"
+  >
+  </mat-paginator>
+</div>
+<app-movie-list
+  [movies]="currentPageMovies"
+  (removedFromFavorites)="onRemovedFromFavorites($event)"
+></app-movie-list>

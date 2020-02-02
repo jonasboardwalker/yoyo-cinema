@@ -1,0 +1,44 @@
+<div class="app-movie__list">
+  <p class="app-movie__list__empty-response" *ngIf="movies.length == 0">No movies found</p>
+  <div class="app-movie__list__details" *ngFor="let movie of movies">
+    <img
+      *ngIf="movie.poster_path != null"
+      [src]="posterUrl + movie.poster_path"
+      alt="{{movie.title}}"
+    />
+    <img
+      *ngIf="movie.poster_path == null"
+      src="/assets/no_image.png"
+      alt="{{movie.title}}"
+    />
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+        <mat-card-subtitle>{{movie.release_date | date: 'yyyy'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="app-movie__list__details__content">
+          {{movie.overview}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          [routerLink]="['/detail']"
+          [queryParams]="{ movieId: movie.id }"
+        >
+          View more
+        </button>
+        <button
+          [color]="isFavorite(movie.id) ? 'accent' : ''"
+          (click)="onToggleFavorite(movie)"
+          mat-button
+          aria-label="Add to favorites"
+        >
+          <mat-icon>favorite</mat-icon>
+          {{isFavorite(movie.id) ? 'Remove from favorites' : 'Add to favorites'}}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
