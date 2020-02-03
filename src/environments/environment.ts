@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  apiKey: '4cb1eeab94f45affe2536f2c684a5c9e',
-  apiSearchUrl: 'https://api.themoviedb.org/3/search/movie',
-  posterUrl: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2',
-  backdropUrl: 'https://image.tmdb.org/t/p/w1400_and_h450_face',
-  movieDetailUrl: 'https://api.themoviedb.org/3/movie',
-  trendingUrl: 'https://api.themoviedb.org/3/trending/movie/week'
+  apiKey: "4cb1eeab94f45affe2536f2c684a5c9e",
+  apiSearchUrl: "https://api.themoviedb.org/3/search/movie",
+  posterUrl: "https://image.tmdb.org/t/p/w185_and_h278_bestv2",
+  backdropUrl: "https://image.tmdb.org/t/p/w1400_and_h450_face",
+  movieDetailUrl: "https://api.themoviedb.org/3/movie",
+  trendingUrl: "https://api.themoviedb.org/3/trending/movie/week"
 };
 
 /*

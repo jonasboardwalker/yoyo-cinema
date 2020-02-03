@@ -4,15 +4,22 @@
       <button type="button" [routerLink]="['/']" mat-button>
         <mat-icon>home</mat-icon>
       </button>
+
       <input
         class="app-search__input"
         formControlName="searchQuery"
         type="text"
+        placeholder="Search..."
       />
-      <button type="submit" mat-button>Search</button>
-      <button type="button" [routerLink]="['/favorites']" mat-button>Favorites</button>
+      <button type="submit" mat-button>
+        <mat-icon>search</mat-icon>
+      </button>
+      <button type="button" [routerLink]="['/favorites']" mat-button>
+        <mat-icon>favorite</mat-icon> Favorites
+      </button>
     </mat-toolbar-row>
   </mat-toolbar>
 </form>
 <router-outlet></router-outlet>
+<!-- Hiding/Showing loader -->
 <app-loader *ngIf="isLoaderVisible"></app-loader>

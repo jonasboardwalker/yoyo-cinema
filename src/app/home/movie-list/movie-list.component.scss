@@ -13,13 +13,14 @@
         0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
     }
 
-    &__content { 
-        padding-left: 16px;
+    &__content,
+    &__actions {
+      padding-left: 16px;
     }
   }
 
-  &__empty-response { 
-      padding: 20px;
+  &__empty-response {
+    padding: 20px;
   }
 
   mat-card {

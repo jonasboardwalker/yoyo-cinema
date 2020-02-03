@@ -1,11 +1,11 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { FavoritesService } from './favorites.service';
+import { FavoritesService } from "./favorites.service";
 
-describe('FavoritesService', () => {
+describe("FavoritesService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
+  it("should be created", () => {
     const service: FavoritesService = TestBed.get(FavoritesService);
     expect(service).toBeTruthy();
   });

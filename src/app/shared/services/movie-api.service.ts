@@ -10,25 +10,53 @@ import { Movie } from "../models/movie.model";
 export class MovieApiService {
   constructor(private http: HttpClient) {}
 
-  search(query: string, pageNumber: number = null): Promise<PagedResults<Movie>> {
+  /**
+   *
+   *
+   * @param {string} query Movie name
+   * @param {number} [pageNumber=null] Number of the search result page
+   * @returns {Promise<PagedResults<Movie>>} Promise of search results
+   * @memberof MovieApiService
+   */
+  search(
+    query: string,
+    pageNumber: number = null
+  ): Promise<PagedResults<Movie>> {
+    // forming api url to retrieve movie list
     let url = `${environment.apiSearchUrl}?api_key=${environment.apiKey}&query=${query}`;
-
-    if(pageNumber != null) {
-      url += '&page=' + pageNumber;
+    // if number of the page is specified, then add page parameter to the api url string
+    if (pageNumber != null) {
+      url += `&page=${pageNumber}`;
     }
-
     return this.http.get<PagedResults<Movie>>(url).toPromise();
   }
 
-  getMovieById(id: number): Promise<Movie> {
-    let url = `${environment.movieDetailUrl}/${id}?api_key=${environment.apiKey}`;
-
+  /**
+   * Getting details of the movie
+   *
+   * @param {number} movieId Movie ID to get details of
+   * @returns {Promise<Movie>} Promise with movie details
+   * @memberof MovieApiService
+   */
+  getMovieById(movieId: number): Promise<Movie> {
+    // forming api url to get movie details
+    const url = `${environment.movieDetailUrl}/${movieId}?api_key=${environment.apiKey}`;
     return this.http.get<Movie>(url).toPromise();
   }
 
-  getTrendingMovies(pageNumber: number): Promise<PagedResults<Movie>>{
-    let url = `${environment.trendingUrl}?api_key=${environment.apiKey}&page=${pageNumber}`;
-
+  /**
+   * Get list of trending movies
+   *
+   * @param {number} pageNumber
+   * @returns {Promise<PagedResults<Movie>>}
+   * @memberof MovieApiService
+   */
+  getTrendingMovies(pageNumber: number = null): Promise<PagedResults<Movie>> {
+    let url = `${environment.trendingUrl}?api_key=${environment.apiKey}`;
+    // if number of the page is specified, then add page parameter to the api url string
+    if (pageNumber != null) {
+      url += `&page=${pageNumber}`;
+    }
     return this.http.get<PagedResults<Movie>>(url).toPromise();
   }
 }
